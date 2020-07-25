@@ -6,8 +6,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git remote add origin git@github.com:btanwar/iot-dash-lib.git"
+    "url": "https://github.com/btanwar/iot-dash-lib.git"
   },
+  "publishConfig": { "registry": "https://npm.pkg.github.com/" },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
