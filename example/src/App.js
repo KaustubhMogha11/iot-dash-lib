@@ -1,10 +1,16 @@
 import React from 'react'
 
-import { ExampleComponent } from 'iot-dash-lib'
+import * as  dlib  from 'iot-dash-lib'
 import 'iot-dash-lib/dist/index.css'
 
 const App = () => {
-  return <ExampleComponent text="Create React Library Example 😄" />
+  return <div>   
+          <dlib.ExampleComponent text="Create React Library Example 😄" />
+          <dlib.ChartJS type='bar'/>
+         </div>
+
 }
+
+
 
 export default App
