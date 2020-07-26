@@ -1,15 +1,18 @@
 import React from 'react'
-
-import * as  dlib  from 'iot-dash-lib'
+import IOTComponents from 'iot-dash-lib'
 import 'iot-dash-lib/dist/index.css'
 
-const App = () => {
-  return <div>   
-          <dlib.ExampleComponent text="Create React Library Example 😄" />
-          <dlib.ChartJS type='bar'/>
-         </div>
 
+
+const App = () => {
+  return(
+  IOTComponents.map((Component, key) => (
+    // Remember to make first letter capital (in this case "c")
+    <Component key={key}/> ) )
+  );
+  
 }
+
 
 
 

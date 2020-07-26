@@ -1,13 +1,27 @@
 import React from 'react'
 import styles from './styles.module.css'
+
 import ChartJS from './components/chartjs'
 import WidgetBarChart from './components/widgetBarChart'
 import WidgetLineChart from './components/widgetLineChart'
 import WidgetDoughnutChart from './components/widgetDoughnutChart'
 
-export const ExampleComponent = ({ text }) => {
+
+const ExampleComponent = ({ text }) => {
   return <div className={styles.test}>Example Component: {text}</div>
 }
 
-export { ChartJS, WidgetBarChart, WidgetLineChart , WidgetDoughnutChart } ;
+export {ChartJS,WidgetBarChart,WidgetLineChart,WidgetDoughnutChart,ExampleComponent};
 
+const IOTComponents = [ {name: 'ChartJS', value: ChartJS },
+                        {name: 'WidgetBarChart', value: WidgetBarChart},
+                        {name: 'WidgetLineChart', value: WidgetLineChart},
+                        {name: 'WidgetDoughnutChart' , value: WidgetDoughnutChart},
+                        {name: 'ExampleComponent', value: ExampleComponent }  ];
+
+// const IOTComponents = { "ChartJS" : ChartJS,
+//                   "WidgetBarChart" : WidgetBarChart,
+//                   "WidgetLineChart" : WidgetLineChart,
+//                   "WidgetDoughnutChart" : WidgetDoughnutChart }
+
+export default IOTComponents;
