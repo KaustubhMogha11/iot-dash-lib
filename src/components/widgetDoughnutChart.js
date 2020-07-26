@@ -8,7 +8,7 @@ export default class WidgetDoughnutChart extends React.Component {
     super(props)
     this.canvasRef = React.createRef()
     this.state = {
-      //data: this.getData(this.props.dsinstid)
+      // data: this.getData(this.props.dsinstid)
       data: []
     }
   }
@@ -37,7 +37,7 @@ export default class WidgetDoughnutChart extends React.Component {
         datasets: [
           {
             data: this.state.data.map((d) => d.value)
-            //  backgroundColor: this.props.colors
+            // backgroundColor: this.props.colors
           }
         ]
       }

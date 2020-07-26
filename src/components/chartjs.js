@@ -53,9 +53,9 @@ export default class ChartJS extends React.Component {
     this.canvasRef.current.parentNode.style.height = '100%'
     this.canvasRef.current.parentNode.style.width = '100%'
     this.interval = setInterval(() => {
-      //console.log(this.props.dsinstid);
+      // console.log(this.props.dsinstid);
       this.setState({
-        //data: this.getData(this.props.dsinstid)
+        // data: this.getData(this.props.dsinstid)
         data: global.dsdata[this.props.dsinstid] || []
       })
     }, 5000)

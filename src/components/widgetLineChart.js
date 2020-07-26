@@ -10,7 +10,7 @@ export default class WidgetLineChart extends React.Component {
     this.canvasRef = React.createRef()
 
     this.state = {
-      //data: this.getData(this.props.dsinstid)
+      // data: this.getData(this.props.dsinstid)
       data: []
     }
   }
