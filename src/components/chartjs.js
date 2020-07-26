@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
-import Chart from 'chart.js';
-import 'chartjs-plugin-colorschemes';
+import React from 'react'
+import Chart from 'chart.js'
+import 'chartjs-plugin-colorschemes'
 
 
 export default class ChartJS extends React.Component {
