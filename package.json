@@ -9,7 +9,7 @@
     "url": "https://github.com/btanwar/iot-dash-lib.git"
   },
   "publishConfig": {
-    "registry": "https://npm.pkg.github.com/btanwar/iot-dash-lib.git"
+    "registry": "https://registry.npmjs.org"
   },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
