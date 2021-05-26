@@ -47,7 +47,7 @@ export default class WidgetDoughnutChart extends React.Component {
     this.canvasRef.current.parentNode.style.width = '100%'
     this.interval = setInterval(() => {
       this.setState({
-        data: global.dsdata[this.props.dsinstid] || []
+        data: this.props.data || []
       })
     }, 5000)
   }

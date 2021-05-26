@@ -58,7 +58,7 @@ export default class WidgetBarChart extends React.Component {
     this.interval = setInterval(() => {
       // console.log(this.props.dsinstid);
       this.setState({
-        data: global.dsdata[this.props.dsinstid] || []
+        data: this.props.data || []
       })
     }, 5000)
   }
