@@ -13,15 +13,14 @@ npm install --save iot-dash-lib
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import { Registry , Registered }  from 'iot-dash-lib'
 
-import MyComponent from 'iot-dash-lib'
-import 'iot-dash-lib/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Example Component = (props) => {
+  return (
+    <div>
+      <Registered id={component.name} {...props} />
+    </div>
+  );
 }
 ```
 
