@@ -84,7 +84,7 @@ export default class WidgetLineChart extends React.Component {
       // console.log(this.props.dsinstid);
       this.setState({
         // data: this.getData(this.props.dsinstid)
-        data: this.props.data || []
+        data: global.datatable.dsdata[this.props.dsinstid] || []
       })
     }, 5000)
   }

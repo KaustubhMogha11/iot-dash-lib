@@ -13,6 +13,7 @@ export default class WidgetBarChart extends React.Component {
     }
   }
 
+
   componentDidUpdate() {
     this.myChart.data.labels = this.state.data.map((d) => d.label)
     this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value)
@@ -22,6 +23,7 @@ export default class WidgetBarChart extends React.Component {
   }
 
   componentDidMount() {
+
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'bar',
       options: {
@@ -58,7 +60,7 @@ export default class WidgetBarChart extends React.Component {
     this.interval = setInterval(() => {
       // console.log(this.props.dsinstid);
       this.setState({
-        data: this.props.data || []
+        data: global.datatable.dsdata[this.props.dsinstid] || []
       })
     }, 5000)
   }
