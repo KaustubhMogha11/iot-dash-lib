@@ -3,6 +3,16 @@
 
 name: Node.js Package
 
+on: 
+  workflow_dispatch:
+    inputs:
+      logLevel:
+        description: 'Log level'     
+        required: true
+        default: 'warning'
+      tags:
+        description: 'Test scenario tags'   
+
 on:
   release:
     types: [published]
@@ -22,6 +32,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - run: |
+        echo "Log level: ${{ github.event.inputs.logLevel }}"
+        echo "Tags: ${{ github.event.inputs.tags }}" 
       - name: Check out repository code
         uses: actions/checkout@v2
       - name: Install jq tool
