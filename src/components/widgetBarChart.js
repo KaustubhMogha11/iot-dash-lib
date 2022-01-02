@@ -9,6 +9,10 @@ export default class WidgetBarChart extends React.Component {
 
     this.canvasRef = React.createRef()
     this.state = {
+      // data: this.getData(this.props.dsinstid)
+      title: this.props.title ,
+      scheme: this.props.scheme ,
+      color: this.props.color ,
       data: []
     }
   }
@@ -19,11 +23,10 @@ export default class WidgetBarChart extends React.Component {
     this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value)
     // console.log(global.mode);
     // setMode(global.mode);
-    this.myChart.update()
+    this.myChart.update();
   }
 
   componentDidMount() {
-
     this.myChart = new Chart(this.canvasRef.current, {
       type: 'bar',
       options: {
@@ -59,10 +62,12 @@ export default class WidgetBarChart extends React.Component {
     this.canvasRef.current.parentNode.style.width = '100%'
     this.interval = setInterval(() => {
       // console.log(this.props.dsinstid);
+      // console.log(this.props.getdata(this.props.dsinstid));
       this.setState({
-        data: global.datatable.dsdata[this.props.dsinstid] || []
-      })
-    }, 5000)
+        data: this.props.getdata(this.props.dsinstid) || []
+      //data: global.datatable.dsdata[this.props.dsinstid] || []
+      });
+    }, 5000);
   }
 
   render() {

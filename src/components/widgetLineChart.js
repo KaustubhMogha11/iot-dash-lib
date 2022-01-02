@@ -6,12 +6,13 @@ import 'chartjs-plugin-colorschemes'
 export default class WidgetLineChart extends React.Component {
   constructor(props) {
     super(props)
-
     this.canvasRef = React.createRef()
-
     this.state = {
       // data: this.getData(this.props.dsinstid)
-      data: []
+      title: this.props.title ,
+      scheme: this.props.scheme ,
+      color: this.props.color ,
+      data:  []
     }
   }
 
@@ -20,10 +21,9 @@ export default class WidgetLineChart extends React.Component {
   }
 
   componentDidUpdate() {
-    this.myChart.data.labels = this.state.data.map((d) => d.time)
-    this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value)
-    // setMode(global.mode);
-    this.myChart.update()
+    this.myChart.data.labels = this.state.data.map((d) => d.time);
+    this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value);
+    this.myChart.update();
   }
 
   componentDidMount() {
@@ -31,7 +31,7 @@ export default class WidgetLineChart extends React.Component {
       type: 'line',
       options: {
         maintainAspectRatio: false,
-        plugins: { colorschemes: { scheme: this.props.scheme } },
+        plugins: { colorschemes: { scheme: this.state.scheme } },
         responsive: true,
         scales: {
           xAxes: [
@@ -65,12 +65,12 @@ export default class WidgetLineChart extends React.Component {
         labels: this.state.data.map((d) => d.time),
         datasets: [
           {
-            label: this.props.title,
+            label: this.state.title,
             data: this.state.data.map((d) => d.value),
             fill: 'none',
-            backgroundColor: this.props.color,
+            backgroundColor: this.state.color,
             pointRadius: 2,
-            borderColor: this.props.color,
+            borderColor: this.state.color,
             borderWidth: 1,
             lineTension: 0.3
           }
@@ -81,12 +81,13 @@ export default class WidgetLineChart extends React.Component {
     this.canvasRef.current.parentNode.style.height = '100%'
     this.canvasRef.current.parentNode.style.width = '100%'
     this.interval = setInterval(() => {
-      // console.log(this.props.dsinstid);
+      console.log(this.props.dsinstid);
+      console.log(this.props.getdata(this.props.dsinstid));
       this.setState({
-        // data: this.getData(this.props.dsinstid)
-        data: global.datatable.dsdata[this.props.dsinstid] || []
-      })
-    }, 5000)
+        data: this.props.getdata(this.props.dsinstid) || []
+      //data: global.datatable.dsdata[this.props.dsinstid] || []
+      });
+    }, 5000);
   }
 
   render() {

@@ -5,23 +5,24 @@ import 'chartjs-plugin-colorschemes'
 // Doughnut
 export default class WidgetDoughnutChart extends React.Component {
   constructor(props) {
-    super(props)
-    this.canvasRef = React.createRef()
+    super(props);
+    this.canvasRef = React.createRef();
     this.state = {
-      // data: this.getData(this.props.dsinstid)
-      data: []
+      title: this.props.title ,
+      scheme: this.props.scheme ,
+      color: this.props.color ,
+      data:  []
     }
   }
 
   componentDidUpdate() {
-    this.myChart.data.labels = this.state.data.map((d) => d.label)
-    this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value)
-    // setMode(global.mode);
-    this.myChart.update()
+    this.myChart.data.labels = this.state.data.map((d) => d.label);
+    this.myChart.data.datasets[0].data = this.state.data.map((d) => d.value);
+    this.myChart.update();
   }
 
   componentWillUnmount() {
-    clearInterval(this.interval)
+    clearInterval(this.interval);
   }
 
   componentDidMount() {
@@ -46,10 +47,13 @@ export default class WidgetDoughnutChart extends React.Component {
     this.canvasRef.current.parentNode.style.height = '100%'
     this.canvasRef.current.parentNode.style.width = '100%'
     this.interval = setInterval(() => {
+      // console.log(this.props.dsinstid);
+      // console.log(this.props.getdata(this.props.dsinstid));
       this.setState({
-        data: global.datatable.dsdata[this.props.dsinstid] || []
-      })
-    }, 5000)
+        data: this.props.getdata(this.props.dsinstid) || []
+      //data: global.datatable.dsdata[this.props.dsinstid] || []
+      });
+    }, 5000);
   }
 
   render() {
