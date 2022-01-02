@@ -7,7 +7,7 @@ import WidgetBarChart from './components/widgetBarChart'
 import WidgetLineChart from './components/widgetLineChart'
 import WidgetDoughnutChart from './components/widgetDoughnutChart'
 
-
+//from git
 // const ExampleComponent = ({ text }) => {
 //   return <div className={styles.test}>Example Component: {text}</div>
 // }
