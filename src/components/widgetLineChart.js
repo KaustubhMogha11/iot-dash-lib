@@ -78,15 +78,23 @@ export default class WidgetLineChart extends React.Component {
       }
     })
 
+    
     this.canvasRef.current.parentNode.style.height = '100%'
     this.canvasRef.current.parentNode.style.width = '100%'
+    
     this.interval = setInterval(() => {
-      console.log(this.props.dsinstid);
-      console.log(this.props.getdata(this.props.dsinstid));
-      this.setState({
-        data: this.props.getdata(this.props.dsinstid) || []
-      //data: global.datatable.dsdata[this.props.dsinstid] || []
-      });
+      //console.log(this.props.dsinstid);
+      //console.log(this.props.getdata(this.props.dsinstid));
+    
+      // this.setState({
+      //   data: this.props.getdata(this.props.dsinstid) || []
+      // });
+
+    this.setState(prevState => ({
+      data: [...prevState.data, this.props.getdata(this.props.dsinst) ]
+    }))
+    
+
     }, 5000);
   }
 

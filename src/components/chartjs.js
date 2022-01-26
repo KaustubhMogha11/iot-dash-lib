@@ -56,7 +56,7 @@ export default class ChartJS extends React.Component {
       // console.log(this.props.dsinstid);
       this.setState({
         // data: this.getData(this.props.dsinstid)
-        data: global.datatable.dsdata[this.props.dsinstid] || []
+        data: global.datatable.dsdata[this.props.dsinst] || []
       })
     }, 5000)
   }

@@ -64,7 +64,7 @@ export default class WidgetBarChart extends React.Component {
       // console.log(this.props.dsinstid);
       // console.log(this.props.getdata(this.props.dsinstid));
       this.setState({
-        data: this.props.getdata(this.props.dsinstid) || []
+        data: this.props.getdata(this.props.dsinst) || []
       //data: global.datatable.dsdata[this.props.dsinstid] || []
       });
     }, 5000);
